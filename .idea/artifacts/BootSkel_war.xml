@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="BootSkel:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="cscc-0.1.0.war">
-      <element id="artifact" artifact-name="BootSkel:war exploded" />
-    </root>
-  </artifact>
-</component>
