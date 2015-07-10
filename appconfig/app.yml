@@ -1,0 +1,5 @@
+app:
+  version: 1233
+  queryFiles:
+    - /myfile/this.dat
+    - /myfile/that.dat
