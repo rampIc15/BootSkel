@@ -5,17 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bootstrap 3, from LayoutIt!</title>
+    <title>IConetiv : ES Panel</title>
 
-    <meta name="description" content="Source code generated using layoutit.com">
-    <meta name="author" content="LayoutIt!">
+    <meta name="description" content="Control panel for ES Clusters">
+    <meta name="author" content="Iconectiv">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css">
 
 </head>
 <body>
 <br>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -109,70 +111,89 @@
         <div class="col-md-12">
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#">Home</a>
+                    <a id="clusterTab" data-toggle="tab" href="#cluster">Cluster</a>
                 </li>
-                <li>
-                    <a href="#">Profile</a>
+                <li data-toggle="tab">
+                    <a data-toggle="tab" href="#bkupInfo">Backup Info</a>
                 </li>
-                <li class="disabled">
-                    <a href="#">Messages</a>
+                <li class="disabled" data-toggle="tab">
+                    <a data-toggle="tab" href="#messages">Messages</a>
                 </li>
-                <li class="dropdown pull-right">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong
-                            class="caret"></strong></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">Action</a>
+
+            </ul>
+            <div class="tab-content">
+                <div id="cluster" class="tab-pane fade in active">
+                    <h3 id="clusterHeading">CLUSTER</h3>
+                    <ul class="nav nav-pills">
+                        <li class="active">
+                            <a href="#"> <span class="badge pull-right" id="nodeBadge">--</span> Nodes </a>
                         </li>
-                        <li>
-                            <a href="#">Another action</a>
+                        <li class="active">
+                            <a href="#"> <span class="badge pull-right" id="dateNodeBadge">--</span> Data Nodes </a>
                         </li>
-                        <li>
-                            <a href="#">Something else here</a>
+                        <li class="active">
+                            <a href="#"> <span class="badge pull-right" id="primaryShardsBadge">--</span> Primary Shards </a>
                         </li>
-                        <li class="divider">
-                        </li>
-                        <li>
-                            <a href="#">Separated link</a>
+                        <li class="active">
+                            <a href="#"> <span class="badge pull-right" id="activeShardsBadge">--</span> Active Shards </a>
                         </li>
                     </ul>
-                </li>
-            </ul>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Panel title
-                    </h3>
+                    <div id="clusterInfoPanel" class="panel panel-default">
+                        <div class="panel-heading">
+
+                            <div class="row">
+                                <div class="col-md-4">
+
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table data-toggle="table" id="node-data-table" data-height="299" class="table table-responsive table-striped table-condensed table-hover">
+
+                            </table>
+                        </div>
+                        <div class="panel-footer">
+                            Panel footer
+                        </div>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    Panel content
+                <div id="bkupInfo" class="tab-pane fade">
+                    <h3>BACKUP SETUP</h3>
+
+                    <p>backup</p>
                 </div>
-                <div class="panel-footer">
-                    Panel footer
+                <div id="messages" class="tab-pane fade">
+                    <h3>Messages</h3>
+
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                        totam rem aperiam.</p>
+                </div>
+                <div id="menu3" class="tab-pane fade">
+                    <h3>Menu 3</h3>
+
+                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                        explicabo.</p>
                 </div>
             </div>
+
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <ul class="nav nav-pills">
-                <li class="active">
-                    <a href="#"> <span class="badge pull-right">42</span> Home</a>
-                </li>
-                <li>
-                    <a href="#"> <span class="badge pull-right">16</span> More</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4">
-        </div>
-    </div>
+
 </div>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/scripts.js"></script>
+<!--Experimetn-->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>
+
+<script>
+    UIActions.init();
+</script>
+
 </body>
 </html>
