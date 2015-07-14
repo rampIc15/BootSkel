@@ -1,16 +1,8 @@
 // Empty JS for your own code to be here
 
 window.operateEvents = {
-    'click .like': function (e, value, row, index) {
-        alert('You click like icon, row: ' + JSON.stringify(row));
-        console.log(value, row, index);
-    },
-    'click .edit': function (e, value, row, index) {
-        alert('You click edit icon, row: ' + JSON.stringify(row));
-        console.log(value, row, index);
-    },
     'click .remove': function (e, value, row, index) {
-        alert('You click remove icon, row: ' + JSON.stringify(row));
+        alert('Shutdown ? : ' + JSON.stringify(row));
         console.log(value, row, index);
     }
 };
@@ -33,7 +25,7 @@ var UIActions = {
                 },
                 {
                     field: 'operate',
-                    title: 'Operations',
+                    title: 'Shutdown',
                     align: 'center',
                     valign: 'middle',
                     clickToSelect: false,
@@ -152,14 +144,8 @@ var UIActions = {
 
     tableOperColFormater: function operateFormatter(value, row, index) {
         return [
-            '<a class="like" href="javascript:void(0)" title="Like">',
-            '<i class="glyphicon glyphicon-heart"></i>',
-            '</a>',
-            '<a class="edit ml10" href="javascript:void(0)" title="Edit">',
-            '<i class="glyphicon glyphicon-edit"></i>',
-            '</a>',
             '<a class="remove ml10" href="javascript:void(0)" title="Remove">',
-            '<i class="glyphicon glyphicon-remove"></i>',
+            '<i class="glyphicon glyphicon-off" style="color:red"></i>',
             '</a>'
         ].join('');
     }
