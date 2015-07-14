@@ -19,7 +19,7 @@ var UIActions = {
     init: function () {
         this.bindUIControls();
 
-
+        //NODE DATA TABLE
         $('#node-data-table').bootstrapTable({
             data: [],
             columns: [
@@ -39,6 +39,62 @@ var UIActions = {
                     clickToSelect: false,
                     formatter: this.tableOperColFormater,
                     events: operateEvents
+                }
+            ]
+        });
+
+        //INDICES TABLE
+        $('#indexTable').bootstrapTable({
+            method: 'get',
+            url: '/indicesInfo',
+            cache: false,
+            height: 400,
+            striped: true,
+            pagination: true,
+            pageSize: 50,
+            pageList: [10, 25, 50, 100, 200],
+            search: true,
+            showColumns: true,
+            showRefresh: true,
+            minimumCountColumns: 2,
+            clickToSelect: true,
+            columns: [
+                {
+                    field: 'state',
+                    checkbox: true
+                },
+                {
+                    field: 'index',
+                    title: 'Index Name',
+                    align: 'right',
+                    valign: 'bottom',
+                    sortable: true
+                },
+                {
+                    field: 'primaryreplicas',
+                    title: 'Primary / Replicas',
+                    align: 'center',
+                    valign: 'middle',
+                    sortable: true,
+//                    formatter: nameFormatter
+                },
+                {
+                    field: 'docsCount',
+                    title: 'No.Of Docs',
+                    align: 'left',
+                    valign: 'top',
+                    sortable: true,
+//                    formatter: priceFormatter,
+//                    sorter: priceSorter
+                },
+                {
+                    field: 'size',
+                    title: 'Index Size',
+                    align: 'center',
+                    valign: 'middle',
+                    clickToSelect: false,
+//                    formatter: operateFormatter,
+//                    events: operateEvents
                 }
             ]
         });

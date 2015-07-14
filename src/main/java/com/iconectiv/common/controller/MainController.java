@@ -77,16 +77,26 @@ public class MainController implements Constants {
             String indicesListAsStr = response.getBody();
             String[] lines = indicesListAsStr.split("\n");
             JSONArray jsonArray = new JSONArray();
+            String plus = Pattern.quote("\\s+");
             for (int i = 0; i < lines.length; i++) {
-                String plus = Pattern.quote("[ ]+");
-                String[] elements = lines[i].replaceAll(plus," ").split(" ");
+                String[] tmpElements = lines[i].replaceAll(plus, "").split(" ");
+                String[] elements = new String[10];
+                int indx = 0;
+                for (int k = 0; k < tmpElements.length && indx < 10; k++) {
+                    if (!("").equals(tmpElements[k])) {
+                        elements[indx] = tmpElements[k];
+                        indx++;
+                    }
+                }
                 try {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("health", elements[0]);
                     jsonObject.put("status", elements[1]);
+                    jsonObject.put("index", elements[2]);
                     jsonObject.put("primaryreplicas", elements[3] + "/" + elements[4]);
                     jsonObject.put("docsCount", Integer.parseInt(elements[5]));
-                    jsonObject.put("size", elements[4]);
+                    jsonObject.put("size", elements[7]);
+                    jsonObject.put("size", elements[8]);
                     jsonArray.put(jsonObject);
                 } catch (Exception e) {
                     e.printStackTrace();
