@@ -113,15 +113,16 @@
                 <li class="active">
                     <a id="clusterTab" data-toggle="tab" href="#cluster">Cluster</a>
                 </li>
-                <li data-toggle="tab">
+                <li id="indicesTab" data-toggle="tab">
                     <a data-toggle="tab" href="#indicesInfo">Indices</a>
                 </li>
-                <li class="disabled" data-toggle="tab">
-                    <a data-toggle="tab" href="#messages">Messages</a>
+                <li id="backupTab" class="disabled" data-toggle="tab">
+                    <a data-toggle="tab" href="#backupInfo">Backup</a>
                 </li>
 
             </ul>
             <div class="tab-content">
+                <!--CLUSTER TAB -->
                 <div id="cluster" class="tab-pane fade in active">
                     <h3 id="clusterHeading">CLUSTER</h3>
                     <ul class="nav nav-pills">
@@ -161,17 +162,46 @@
                         </div>
                     </div>
                 </div>
+                <!--INDICES TAB-->
                 <div id="indicesInfo" class="tab-pane fade">
                     <h3>Indices</h3>
                     <table data-toggle="table" id="indexTable" data-height="299" class="table table-responsive table-striped table-condensed table-hover">
 
                     </table>
                 </div>
-                <div id="messages" class="tab-pane fade">
-                    <h3>Messages</h3>
+                <!--BACKUP TAB-->
+                <div id="backupInfo" class="tab-pane fade">
+                    <h3>Backup Snapshots</h3>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel-group" id="panel-407364">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-407364" href="#panel-element-566927">Collapsible Group Item #1</a>
+                                        </div>
+                                        <div id="panel-element-566927" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                Anim pariatur cliche...
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-407364" href="#panel-element-770697">Collapsible Group Item #2</a>
+                                        </div>
+                                        <div id="panel-element-770697" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                Anim pariatur cliche...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                        totam rem aperiam.</p>
+
                 </div>
                 <div id="menu3" class="tab-pane fade">
                     <h3>Menu 3</h3>
