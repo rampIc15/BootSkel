@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
@@ -72,7 +74,7 @@ public class MainController implements Constants {
     @ResponseBody
     String indicesInfo() {
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.getForEntity("http://10.107.1.72:9200/_cat/indices", String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity("http://10.107.1.72:9200" + REST_CMD_INDICES, String.class);
         if (HttpStatus.OK == response.getStatusCode()) {
             String indicesListAsStr = response.getBody();
             String[] lines = indicesListAsStr.split("\n");
@@ -107,6 +109,21 @@ public class MainController implements Constants {
         }
         return "ok";
     }
+
+    @RequestMapping(value = {"/backupInfo/{snapshot}", "/backupInfo"}, method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String backupInfo(@PathVariable Map<String,String> pathVariables) {
+        System.out.println("Snapshot param : " + pathVariables);
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response = restTemplate.getForEntity("http://10.107.1.72:9200" + REST_CMD_SNAPSHOT, String.class);
+        if (HttpStatus.OK == response.getStatusCode()) {
+            return response.getBody();
+        }
+        return "{\"status:\" + response.getStatusCode() + ";
+    }
+
+
 }
 
 
